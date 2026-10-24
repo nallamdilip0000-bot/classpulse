@@ -10,13 +10,21 @@ export default function AddStudentModal({ isOpen, onClose }) {
   const { classes, addStudent } = useApp();
   const { currentUser, isTeacher, isAdmin, register } = useAuth();
 
-  // Faculty and students are strictly blocked from manual learner enrollment
-  if (!isAdmin) {
+  // Students are blocked from learner enrollment
+  if (!isAdmin && !isTeacher) {
     return null;
   }
 
   // Filter available classes to teacher's cohorts if faculty
-  const availableClasses = classes;
+  const availableClasses = useMemo(() => {
+    if (isAdmin) return classes;
+    if (isTeacher) {
+      const allowed = currentUser?.assignedClassIds || [];
+      const teacherClasses = classes.filter(c => allowed.includes(c.id));
+      return teacherClasses.length > 0 ? teacherClasses : classes;
+    }
+    return classes;
+  }, [classes, isAdmin, isTeacher, currentUser]);
 
   const [studentCode, setStudentCode] = useState('');
   const [displayName, setDisplayName] = useState('');

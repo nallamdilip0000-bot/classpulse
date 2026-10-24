@@ -55,10 +55,13 @@ export default function Students() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Student Management
+            {isTeacher ? 'My Students' : 'Student Management'}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Search, filter, inspect explainable review indicators, and log teacher follow-up plans.
+            {isTeacher
+              ? 'Manage your enrolled learners, inspect explainable indicators, and enroll new students into your cohorts.'
+              : 'Search, filter, inspect explainable review indicators, and log teacher follow-up plans.'
+            }
           </p>
         </div>
 
@@ -72,7 +75,7 @@ export default function Students() {
             Export Roster (CSV)
           </Button>
 
-          {isAdmin && (
+          {(isAdmin || isTeacher) && (
             <Button
               size="sm"
               icon={UserPlus}

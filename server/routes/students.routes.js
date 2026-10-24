@@ -28,11 +28,11 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST enroll student (restricted to Admin or student self-registration)
+// POST enroll student (Admin and Faculty authorized, students prohibited)
 router.post('/', async (req, res) => {
   const userRole = req.headers['x-user-role'] || req.body.role;
-  if (userRole === 'teacher' || userRole === 'faculty') {
-    return res.status(403).json({ error: 'Forbidden: Faculty instructors cannot manually enroll students. Students must self-register.' });
+  if (userRole === 'student') {
+    return res.status(403).json({ error: 'Forbidden: Students cannot manually enroll other students.' });
   }
 
   try {

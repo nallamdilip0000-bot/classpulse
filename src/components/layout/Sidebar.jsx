@@ -22,13 +22,13 @@ import {
 } from 'lucide-react';
 
 export default function Sidebar({ isCollapsed, onToggleCollapse }) {
-  const { currentRole, isStudent, currentUser, logout } = useAuth();
+  const { currentRole, isStudent, isTeacher, currentUser, logout } = useAuth();
   const { summaryMetrics } = useApp();
 
   // Navigation items for Staff (Admin & Teacher)
   const staffNavItems = [
     { to: '/', label: 'Overview', icon: LayoutDashboard },
-    { to: '/students', label: 'Students', icon: Users },
+    { to: '/students', label: isTeacher ? 'My Students' : 'Students', icon: Users },
     { to: '/attendance', label: 'Attendance', icon: CalendarCheck },
     { to: '/assessments', label: 'Assessments', icon: Award },
     { to: '/analytics', label: 'Academic Analytics', icon: TrendingUp },
