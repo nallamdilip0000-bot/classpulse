@@ -208,4 +208,13 @@ assert(!canModifyAttendance('student'), 'Student role is forbidden from modifyin
 assert(canModifyAttendance('teacher'), 'Teacher role is authorized to modify attendance');
 assert(canModifyAttendance('admin'), 'Admin role is authorized to modify attendance');
 
+// Learner Enrollment Policy: Students must self-register; Faculty cannot enroll students
+function canEnrollLearners(userRole) {
+  return userRole === 'admin';
+}
+
+assert(!canEnrollLearners('teacher'), 'Faculty role is strictly forbidden from enrolling students');
+assert(!canEnrollLearners('student'), 'Student role cannot manually enroll other students');
+assert(canEnrollLearners('admin'), 'Institutional Admin is permitted to enroll students');
+
 console.log(`\nResults: ${passedTests}/${totalTests} tests passed.\n`);

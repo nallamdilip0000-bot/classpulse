@@ -366,8 +366,13 @@ export function AppProvider({ children }) {
     addToast('Settings Saved', 'Risk indicator thresholds updated and indicators recalculated.', 'success');
   }, [recordActivity, addToast]);
 
-  // Actions: Add Student (Admin & Faculty)
+  // Actions: Add Student (Institutional Administrator only)
   const addStudent = useCallback((studentData) => {
+    if (!isAdmin) {
+      addToast('Permission Denied', 'Faculty instructors cannot manually enroll students. Students must self-register through the portal.', 'warning');
+      return null;
+    }
+
     const newStudent = {
       id: studentData.studentCode,
       ...studentData,

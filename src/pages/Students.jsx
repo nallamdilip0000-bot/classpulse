@@ -72,7 +72,7 @@ export default function Students() {
             Export Roster (CSV)
           </Button>
 
-          {(isAdmin || isTeacher) && (
+          {isAdmin && (
             <Button
               size="sm"
               icon={UserPlus}
