@@ -225,6 +225,11 @@ export function AppProvider({ children }) {
 
   // Actions: Add/Update Attendance
   const recordAttendanceBatch = useCallback((recordsToUpsert) => {
+    if (isStudent) {
+      addToast('Action Prohibited', 'Students are not authorized to record or modify attendance.', 'warning');
+      return;
+    }
+
     setAttendanceRecords(prev => {
       const recordMap = new Map();
       prev.forEach(r => recordMap.set(`${r.studentId}-${r.date}`, r));
@@ -240,7 +245,7 @@ export function AppProvider({ children }) {
       `Updated attendance for ${recordsToUpsert.length} student sessions.`
     );
     addToast('Attendance Saved', 'Daily attendance records updated successfully.', 'success');
-  }, [recordActivity, addToast]);
+  }, [isStudent, recordActivity, addToast]);
 
   // Actions: Create Assessment
   const addAssessment = useCallback((assessmentData) => {

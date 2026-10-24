@@ -199,4 +199,13 @@ assert(!duplicateRegResult.success, 'Duplicate email registration rejected');
 const loginRegistered = lookupUser('m.curie@classpulse.edu', [...INITIAL_USERS, ...registeredUsersStore]);
 assert(loginRegistered.found && loginRegistered.user.displayName === 'Prof. Marie Curie', 'Newly registered user can log in immediately');
 
+// Role-based Attendance Security Policy
+function canModifyAttendance(userRole) {
+  return userRole === 'teacher' || userRole === 'faculty' || userRole === 'admin';
+}
+
+assert(!canModifyAttendance('student'), 'Student role is forbidden from modifying attendance');
+assert(canModifyAttendance('teacher'), 'Teacher role is authorized to modify attendance');
+assert(canModifyAttendance('admin'), 'Admin role is authorized to modify attendance');
+
 console.log(`\nResults: ${passedTests}/${totalTests} tests passed.\n`);

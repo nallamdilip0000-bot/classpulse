@@ -20,6 +20,11 @@ router.get('/', async (req, res) => {
 
 // POST batch roll-call upsert
 router.post('/batch', async (req, res) => {
+  const userRole = req.headers['x-user-role'] || req.body.role;
+  if (userRole === 'student') {
+    return res.status(403).json({ error: 'Forbidden: Students are not authorized to mark or alter attendance records.' });
+  }
+
   const { records } = req.body;
   if (!Array.isArray(records)) {
     return res.status(400).json({ error: 'Records must be an array' });
