@@ -1,7 +1,7 @@
 -- ====================================================================
 -- ClassPulse: Early Academic Support Dashboard
 -- Database Schema & Row Level Security (RLS) Policies
--- Suggested Ministry Alignment: Ministry of Education (IC26-02-02)
+-- Suggested Ministry Alignment: Ministry of Education
 -- ====================================================================
 
 -- 1. EXTENSIONS & ENUMS

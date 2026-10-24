@@ -80,7 +80,7 @@ export default function Sidebar({ isCollapsed, onToggleCollapse }) {
                 Class<span className="text-[#6D28D9] dark:text-purple-400">Pulse</span>
               </span>
               <span className="text-[10px] text-slate-400 font-medium tracking-wide mt-1 truncate">
-                IC26-02-02 • MoE
+                Ministry of Education
               </span>
             </div>
           )}
@@ -182,7 +182,7 @@ export default function Sidebar({ isCollapsed, onToggleCollapse }) {
             </div>
 
             <div className="px-1 text-[10px] text-slate-400 leading-tight">
-              ClassPulse early academic assistance • MoE IC26-02-02
+              ClassPulse early academic assistance • MoE
             </div>
           </>
         ) : (

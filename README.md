@@ -1,6 +1,5 @@
 # ClassPulse — Early Academic Support Dashboard
 
-**Project Challenge ID:** IC26-02-02 — Software Challenge  
 **Suggested Ministry Alignment:** Ministry of Education  
 **Application Category:** Educational SaaS & Early Academic Intervention Platform
 
@@ -156,7 +155,7 @@ Generates optimized static assets in `dist/`, ready for zero-configuration deplo
 
 ## 8. Alignment with Ministry of Education Standards
 
-ClassPulse was designed for **Software Challenge ID: IC26-02-02** to model how modern web software can elevate early intervention without diminishing teacher judgment:
+ClassPulse was designed to model how modern web software can elevate early intervention without diminishing teacher judgment:
 - **Transparency**: Every recommendation cites verifiable evidence.
 - **Privacy by Design**: Sensitive guardian contacts and private staff notes are separated from student views.
 - **Accessibility & Contrast**: Conforms to WCAG AA color contrast standards.

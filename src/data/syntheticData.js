@@ -1,6 +1,6 @@
 /**
  * Comprehensive Synthetic Demonstration Dataset for ClassPulse
- * Project Challenge ID: IC26-02-02 (Ministry of Education)
+ * Ministry of Education Educational SaaS Platform
  * 
  * Features:
  * - 3 Classes across Grades 10 & 11

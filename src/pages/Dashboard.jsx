@@ -64,7 +64,7 @@ export default function Dashboard() {
               Educational SaaS Platform
             </span>
             <span className="text-[11px] text-purple-200">
-              IC26-02-02 • Ministry of Education
+              Ministry of Education
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight">

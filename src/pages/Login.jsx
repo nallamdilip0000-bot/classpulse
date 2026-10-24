@@ -147,7 +147,7 @@ export default function Login({ initialMode = 'login' }) {
         { label: 'School-Wide Executive Cohort Overview', desc: 'Aggregated analytics across Class 10-A, 10-B, and 11-A' },
         { label: 'Inter-Class Equity & Grade Distributions', desc: 'Identify system gaps and resource distribution needs' },
         { label: 'Policy-Level Threshold Customization', desc: 'Set institutional attendance (default 75%) and decline cutoffs' },
-        { label: 'MoE IC26-02-02 Compliance Export', desc: 'Export full audit logs, intervention summaries, and CSV reports' }
+        { label: 'MoE Educational Compliance Export', desc: 'Export full audit logs, intervention summaries, and CSV reports' }
       ]
     }
   };
@@ -313,9 +313,6 @@ export default function Login({ initialMode = 'login' }) {
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-base tracking-tight text-slate-900 dark:text-white">
                 Class<span className="text-[#6D28D9] dark:text-purple-400">Pulse</span>
-              </span>
-              <span className="hidden sm:inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
-                IC26-02-02
               </span>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">
@@ -905,7 +902,7 @@ export default function Login({ initialMode = 'login' }) {
                         className="w-4 h-4 mt-0.5 rounded text-[#6D28D9] focus:ring-purple-500 border-slate-300 dark:border-slate-700 dark:bg-slate-800 cursor-pointer shrink-0"
                       />
                       <span className="leading-tight">
-                        I understand that ClassPulse is governed by <strong>Ministry of Education IC26-02-02 non-punitive guidelines</strong>. Early indicators provide coaching insights, not punitive consequences.
+                        I understand that ClassPulse is governed by <strong>Ministry of Education non-punitive guidelines</strong>. Early indicators provide coaching insights, not punitive consequences.
                       </span>
                     </label>
                   </div>
@@ -1299,7 +1296,7 @@ export default function Login({ initialMode = 'login' }) {
       {/* Footer */}
       <footer className="py-4 px-4 sm:px-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400 bg-white/40 dark:bg-slate-900/40">
         <p>
-          ClassPulse Early Academic Support System • Innovative Conclave IC26-02-02 • Non-punitive Pedagogical AI Governance
+          ClassPulse Early Academic Support System • Non-punitive Pedagogical AI Governance
         </p>
       </footer>
     </div>

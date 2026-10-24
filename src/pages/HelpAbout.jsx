@@ -21,7 +21,7 @@ export default function HelpAbout() {
       <div>
         <div className="flex items-center gap-2 mb-1">
           <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-[#6D28D9] dark:text-purple-300">
-            Challenge ID: IC26-02-02 • Software Challenge
+            Educational SaaS Platform
           </span>
           <span className="text-xs text-slate-400">
             Alignment: Ministry of Education
