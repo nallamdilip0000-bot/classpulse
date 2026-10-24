@@ -13,6 +13,8 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 export const isSupabaseConfigured = Boolean(
   supabaseUrl && 
   supabaseAnonKey && 
@@ -26,9 +28,14 @@ export const supabase = isSupabaseConfigured
 
 export const backendMode = {
   isDemo: !isSupabaseConfigured,
-  name: isSupabaseConfigured ? 'Supabase Cloud (Live)' : 'Demo Mode (Local Persistence)',
+  isMongoAtlas: true,
+  name: isSupabaseConfigured 
+    ? 'Supabase Cloud (Live)' 
+    : 'MongoDB Atlas / Demo Mode',
   description: isSupabaseConfigured
     ? 'Connected to live Supabase backend with Row Level Security.'
-    : 'Running locally in demo mode with synthetic data and browser persistence.',
-  supabaseUrl: isSupabaseConfigured ? supabaseUrl : null
+    : 'Connected to MongoDB Atlas REST Backend (with local fallback).',
+  supabaseUrl: isSupabaseConfigured ? supabaseUrl : null,
+  apiUrl: apiUrl
 };
+
