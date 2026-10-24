@@ -69,7 +69,12 @@ export async function seedDatabase(force = false) {
 
     // 4. Assessments
     console.log(`Inserting ${INITIAL_ASSESSMENTS.length} assessments...`);
-    await Assessment.insertMany(INITIAL_ASSESSMENTS);
+    const assessmentsWithMarks = INITIAL_ASSESSMENTS.map(a => ({
+      ...a,
+      maxMarks: a.maximumMarks || a.maxMarks || 100,
+      maximumMarks: a.maximumMarks || a.maxMarks || 100
+    }));
+    await Assessment.insertMany(assessmentsWithMarks);
 
     // 5. Assessment Results
     const initialResults = generateInitialAssessmentResults();
