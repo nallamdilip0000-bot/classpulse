@@ -391,10 +391,27 @@ export function AppProvider({ children }) {
       return updated;
     });
 
+    // Synchronize registered user account assignedClassIds
+    try {
+      const savedReg = localStorage.getItem('classpulse_registered_users_v2');
+      if (savedReg) {
+        const registered = JSON.parse(savedReg);
+        const updatedReg = registered.map(u => {
+          if (u.studentId === newStudent.studentCode || u.id === newStudent.id) {
+            return { ...u, assignedClassIds: [newStudent.classId] };
+          }
+          return u;
+        });
+        localStorage.setItem('classpulse_registered_users_v2', JSON.stringify(updatedReg));
+      }
+    } catch (e) {
+      console.warn('Error syncing registered user class assignment:', e);
+    }
+
     recordActivity('Student Enrolled', `Enrolled student ${newStudent.displayName} (${newStudent.studentCode}) by ${currentUser?.displayName || 'User'}.`);
-    addToast('Student Enrolled', `${newStudent.displayName} enrolled successfully.`, 'success');
+    addToast('Student Enrolled', `${newStudent.displayName} enrolled successfully into class cohort.`, 'success');
     return newStudent;
-  }, [currentUser, recordActivity, addToast]);
+  }, [currentUser, isStudent, recordActivity, addToast]);
 
   // Reset Demo Data
   const resetDemoData = useCallback(() => {
